@@ -1,3 +1,6 @@
+# Photos
+src/photos/*.jpg
+
 # Logs
 logs
 *.log

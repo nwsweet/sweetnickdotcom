@@ -1,0 +1,34 @@
+.photos {
+  width: 100%;
+  height: 100%;
+}
+
+.photos h2 {
+  margin-bottom: 16px;
+}
+
+.photos-window {
+  background: #bfbfbf;
+  padding: 2rem;
+  border-radius: 15px;
+}
+
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.photo-cell {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 0px;
+  background: #111;
+}
+
+.photo-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
