@@ -1,0 +1,45 @@
+:root {
+  margin: 0;
+  height: 100%;
+}
+
+.App {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(6, 1fr);
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  color: #002c32
+}
+
+.Header {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20%;
+}
+
+.Header h1 {
+  margin: 0;
+  font-size: 5vw;
+}
+
+nav {
+  grid-row: 2;
+  grid-column: 1 / -1;
+  display: contents;
+}
+
+nav .NavButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 8px 12px;
+  font-size: 2vw;
+}
+nav .NavButton:nth-child(1) { grid-column: 2; }
+nav .NavButton:nth-child(2) { grid-column: 3; }
+nav .NavButton:nth-child(3) { grid-column: 4; }
+nav .NavButton:nth-child(4) { grid-column: 5; }
