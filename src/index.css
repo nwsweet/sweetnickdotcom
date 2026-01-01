@@ -9,20 +9,27 @@
   grid-template-columns: repeat(6, 1fr);
   min-height: 100vh;
   background-color: #f5f5f5;
-  color: #002c32
+  color: #002c32;
+  font-family: 'Courier New';
 }
 
 .Header {
   grid-column: 1 / -1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
   padding-left: 20%;
 }
 
 .Header h1 {
   margin: 0;
   font-size: 5vw;
+  align-self: end;
+}
+
+.Header p {
+  margin: 0;
+  font-size: 1.5vw;
+  align-self: start;
 }
 
 nav {
