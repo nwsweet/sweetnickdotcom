@@ -11,6 +11,12 @@ import Contact from './overlays/Contact'
 
 function App() {
   const [activeOverlay, setActiveOverlay] = useState(null);
+  const [originRect, setOriginRect] = useState(null);
+
+  const handleNavClick = (text, rect) => {
+    setOriginRect(rect);
+    setActiveOverlay(text);
+  }
 
   const renderOverlay = () => {
     switch (activeOverlay) {
@@ -32,14 +38,14 @@ function App() {
       <Header text={"sweetnick.com"}/>
 
       <nav>
-        <NavButton text={"posts"} onNavClick={setActiveOverlay}/>
-        <NavButton text={"photos"} onNavClick={setActiveOverlay}/>
-        <NavButton text={"about me"} onNavClick={setActiveOverlay}/>
-        <NavButton text={"contact"} onNavClick={setActiveOverlay}/>
+        <NavButton text={"posts"} onNavClick={handleNavClick}/>
+        <NavButton text={"photos"} onNavClick={handleNavClick}/>
+        <NavButton text={"about me"} onNavClick={handleNavClick}/>
+        <NavButton text={"contact"} onNavClick={handleNavClick}/>
       </nav>
 
       {activeOverlay && (
-        <Overlay onClose={() => setActiveOverlay(null)}>
+        <Overlay originRect={originRect} onClose={() => setActiveOverlay(null)}>
           {renderOverlay()}
         </Overlay>
       )}

@@ -14,7 +14,7 @@ export default function Posts() {
       <div className="posts-window">
         <ul className="posts-list">
           {posts.map((post) => (
-            <li key={posts.id} className="posts-row">
+            <li key={post.id} className="posts-row">
               <div className="posts-thumb" />
               <div className="posts-content" />
             </li>
