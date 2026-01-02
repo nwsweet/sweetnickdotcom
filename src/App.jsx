@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AnimatePresence } from "motion/react";
 import Header from './components/header';
 import NavButton from './components/navButton'
 import StickyCursor from './components/stickyCursor';
@@ -24,7 +25,7 @@ function App() {
         return <Posts />;
       case "photos":
         return <Photos />;
-      case "about me":
+      case "whoami":
         return <About />;
       case "contact":
         return <Contact />;
@@ -40,15 +41,17 @@ function App() {
       <nav>
         <NavButton text={"posts"} onNavClick={handleNavClick}/>
         <NavButton text={"photos"} onNavClick={handleNavClick}/>
-        <NavButton text={"about me"} onNavClick={handleNavClick}/>
+        <NavButton text={"whoami"} onNavClick={handleNavClick}/>
         <NavButton text={"contact"} onNavClick={handleNavClick}/>
       </nav>
 
-      {activeOverlay && (
-        <Overlay originRect={originRect} onClose={() => setActiveOverlay(null)}>
-          {renderOverlay()}
-        </Overlay>
-      )}
+      <AnimatePresence>
+        {activeOverlay && (
+          <Overlay key={activeOverlay} originRect={originRect} onClose={() => setActiveOverlay(null)}>
+            {renderOverlay()}
+          </Overlay>
+        )}
+      </AnimatePresence>
 
       <StickyCursor />
     </div>
