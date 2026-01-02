@@ -2,14 +2,13 @@ import { motion } from "motion/react"
 import './overlay.css'
 
 export default function Overlay({ children, onClose, originRect }) {
+  // Get the center of where this overlay will originate from (navButton)
   const originCenterX = originRect.left + originRect.width / 2;
   const originCenterY = originRect.top + originRect.height / 2;
 
+  // Convert it to a ratio of it's position in the window
   const originXScale = originCenterX / window.innerWidth;
   const originYScale = originCenterY / window.innerHeight;
-
-  console.log("originXScale: ", originXScale);
-  console.log("originYScale: ", originYScale);
 
   return (
     <motion.div 
