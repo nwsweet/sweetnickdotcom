@@ -6,15 +6,11 @@
   flex-direction: column;
 }
 
-.photos h2 {
-  margin-bottom: 16px;
-  flex-shrink: 0;
+.photos-title {
+  margin-bottom: 1.5rem;
 }
 
 .photos-window {
-  /* background: #bfbfbf; */
-  padding: 2rem;
-  border-radius: 5px;
   flex: 1;
   min-height: 0;
   overflow-y: auto;

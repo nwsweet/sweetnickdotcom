@@ -6,6 +6,10 @@ export default function Posts() {
     { id: 2, title: "Post Two" },
     { id: 3, title: "Post Three" },
     { id: 4, title: "Post Four" },
+    { id: 5, title: "Post One" },
+    { id: 6, title: "Post Two" },
+    { id: 7, title: "Post Three" },
+    { id: 8, title: "Post Four" },
   ];
   
   return (
@@ -19,8 +23,10 @@ export default function Posts() {
               <div className="posts-content" />
             </li>
           ))}
+          <li>
+            <p className="posts-footer">That's all for now.</p>
+          </li>
         </ul>
-        <p className="posts-footer">That's all for now.</p>
       </div>
     </section>
   );

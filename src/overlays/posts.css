@@ -8,13 +8,17 @@
 }
 
 .posts-window {
-  background: #bfbfbf;
-  padding: 2rem;
-  border-radius: 5px;
-  overflow-y: auto;
+  overflow-y: auto;  
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.posts-window::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .posts-list {
+  max-height: 500px;
   list-style: none;
   padding: 0;
   margin: 0;
