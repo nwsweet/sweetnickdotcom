@@ -3,7 +3,7 @@ from PIL import Image
 import os
 
 # OUTPUT_DIR = "random_photos"
-NUM_IMAGES = 40
+NUM_IMAGES = 20
 
 # Create output directory if it doesn't exist
 # os.makedirs(OUTPUT_DIR, exist_ok=True)
