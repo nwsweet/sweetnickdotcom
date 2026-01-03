@@ -6,7 +6,7 @@ import StickyCursor from './components/stickyCursor';
 import Overlay from './components/overlay'
 
 import Posts from './overlays/Posts'
-import Photos from './overlays/Photos'
+import Photos from './overlays/Photos/Photos'
 import About from './overlays/About'
 import Contact from './overlays/Contact'
 

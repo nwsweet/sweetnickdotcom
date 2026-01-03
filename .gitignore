@@ -1,6 +1,6 @@
 # Photos
-src/photos/*.jpg
-src/photos/*.jpeg
+*.jpg
+*.jpeg
 
 # Logs
 logs
