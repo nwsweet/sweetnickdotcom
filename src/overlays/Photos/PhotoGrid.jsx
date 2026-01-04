@@ -1,11 +1,15 @@
 import { motion } from 'motion/react';
 import './photos.css';
 
-export default function PhotoGrid({ photos, isOpen, onSelect }) {
+export default function PhotoGrid({ photos, isOpen, onSelect, isDetailOpen }) {
   if (!isOpen || !photos) return null;
 
   return (
-    <div className="PhotoGrid">
+    <motion.div
+      className="PhotoGrid"
+      animate={{ opacity: isDetailOpen ? 0 : 1 }}
+      transition={{ duration: 0.35, ease: 'easeInOut' }}
+    >
       {photos.map((photo, i) => (
         <motion.div 
           key={i}
@@ -16,9 +20,9 @@ export default function PhotoGrid({ photos, isOpen, onSelect }) {
           whileHover={{ scale: 1.15 }}
           onClick={() => onSelect(i)}
         >
-          <img src={photo} alt={`Photo ${i + 1}`}/>
+          <motion.img src={photo} alt={`Photo ${i + 1}`} layoutId={`photo-${i}`}/>
         </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 }

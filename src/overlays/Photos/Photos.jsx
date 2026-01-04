@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import { AnimatePresence, LayoutGroup, motion } from 'motion/react';
 import { useState } from 'react';
 import PhotoGrid from './PhotoGrid';
 import PhotoDetail from './PhotoDetail';
@@ -14,42 +14,69 @@ export default function Photos() {
   const fullResModules = import.meta.glob('/src/photos/full_res/*.{jpg,jpeg,png}', { eager: true });
   const fullRes = Object.values(fullResModules).map((module) => module.default);
 
-  // Track selected photo
-  const [activePhotoIndex, setActivePhotoIndex] = useState(null);
-  // grid, detail, fullscreen
-  const [view, setView] = useState('grid');
+  // Track selected photo, and view state
+  const [activeIndex, setActiveIndex] = useState(null);
+  const [isDetailOpen, setIsDetailOpen] = useState(false);
+  // const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
-  function clearSelected() {
-    setView('grid');
-    setActivePhotoIndex(null);
-  }
+  // function clearSelected() {
+  //   setView('grid');
+  //   setActiveIndex(null);
+  // }
+
+  const openDetail = (i) => {
+    setActiveIndex(i);
+    setIsDetailOpen(true);
+  };
+
+  const closeDetail = () => {
+    // keep activeIndex while detail exits so it can animate back
+    // use onExitComplete in AnimatePresence instead
+    setIsDetailOpen(false);
+  };
 
   return (
     <section className="photos">
+
+      {/* Title */}
       <motion.div 
         whileHover={{ scale: 1.1 }} 
         whileTap={{ scale: 0.9 }}
         style={{ transformOrigin: 'left' }}
       >
-        <h2 className="photos-title" onClick={() => clearSelected()}>photos</h2>
+        <h2 className="photos-title" onClick={closeDetail}>photos</h2>
       </motion.div>
 
-      <div className="photos-window">
-        <PhotoGrid
-          photos={thumbs}
-          isOpen={view === 'grid'}
-          onSelect={(i) => {
-            setActivePhotoIndex(i);
-            setView('detail');
-          }}
-        />
+      {/* Photos Window */}
+      <div className="photos-window-viewport">
+        <LayoutGroup>
 
-        <PhotoDetail
-          photo={fullRes[activePhotoIndex]}
-          isOpen={view === 'detail'}
-          onExpand={() => setView('fullscreen')}
-          onClose={() => setView('grid')}
-        />
+          {/* Grid */}
+          <motion.div key="grid">
+            <PhotoGrid
+              photos={thumbs}
+              isOpen={true} // TODO: this is no longer necessary, grid is always mounted
+              isDetailOpen={isDetailOpen}
+              onSelect={openDetail}
+            />
+          </motion.div>
+
+          {/* Detail */}
+          <AnimatePresence initial={false} mode="popLayout" onExitComplete={() => setActiveIndex(null)}>
+            {isDetailOpen && activeIndex !== null && (
+              <motion.div key="detail">
+                <PhotoDetail
+                  photo={fullRes[activeIndex]}
+                  thumb={thumbs[activeIndex]}
+                  activeIndex={activeIndex}
+                  isOpen={true} // TODO: remove this too
+                  onExpand={() => setView('fullscreen')}
+                  onClose={closeDetail}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </LayoutGroup>
       </div>
 
     </section>
