@@ -1,19 +1,67 @@
 import { motion } from 'motion/react'
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 
 export default function PhotoDetail({ photo, thumb, isOpen, onExpand, onClose, activeIndex }) {
   if (!isOpen || !photo) return null;
 
   const [isFullResLoaded, setIsFullResLoaded] = useState(false);
   const [isLayoutComplete, setIsLayoutComplete] = useState(false);
+  const detailRef = useRef(null);
+  const thumbRef = useRef(null);
+  const fullResRef = useRef(null);
+
+  const updateImageOffsets = () => {
+    const container = detailRef.current;
+    const fullRes = fullResRef.current;
+    const thumbImg = thumbRef.current;
+    const img = fullRes?.naturalWidth ? fullRes : thumbImg;
+
+    if (!container || !img) return;
+
+    const rect = img.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+
+    const naturalWidth = img.naturalWidth;
+    const naturalHeight = img.naturalHeight;
+    if (!naturalWidth || !naturalHeight) return;
+
+    const scale = Math.min(rect.width / naturalWidth, rect.height / naturalHeight);
+    const contentHeight = naturalHeight * scale;
+    const offsetY = (rect.height - contentHeight) / 2;
+
+    container.style.setProperty('--photo-image-top', `${offsetY}px`);
+    container.style.setProperty('--photo-image-bottom', `${offsetY}px`);
+  };
 
   useEffect(() => {
     setIsFullResLoaded(false);
     setIsLayoutComplete(false);
   }, [photo]);
 
+  useLayoutEffect(() => {
+    updateImageOffsets();
+  }, [photo, isFullResLoaded, isLayoutComplete]);
+
+  useEffect(() => {
+    const container = detailRef.current;
+    const fullRes = fullResRef.current;
+    const thumbImg = thumbRef.current;
+    if (!container || (!fullRes && !thumbImg)) return;
+
+    const observer = new ResizeObserver(() => updateImageOffsets());
+    observer.observe(container);
+    if (fullRes) observer.observe(fullRes);
+    if (thumbImg) observer.observe(thumbImg);
+
+    window.addEventListener('resize', updateImageOffsets);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', updateImageOffsets);
+    };
+  }, [photo, isFullResLoaded, isLayoutComplete]);
+
   return(
-    <div className="photo-detail">
+    <div className="photo-detail" ref={detailRef}>
       <motion.div
         className="photo-detail-bg"
         initial={{ opacity: 0 }}
@@ -25,12 +73,14 @@ export default function PhotoDetail({ photo, thumb, isOpen, onExpand, onClose, a
       <motion.img
         src={thumb}
         layoutId={`photo-${activeIndex}`}
+        ref={thumbRef}
         onLayoutAnimationComplete={() => setIsLayoutComplete(true)}
       />
       <motion.img
         className="photo-detail-fullres"
         src={photo}
         alt=""
+        ref={fullResRef}
         initial={{ opacity: 0 }}
         animate={{ opacity: isFullResLoaded && isLayoutComplete ? 1 : 0 }}
         exit={{ opacity: 0, transition: { duration: 0 } }}
@@ -45,7 +95,7 @@ export default function PhotoDetail({ photo, thumb, isOpen, onExpand, onClose, a
         exit={{ opacity: 0 }}
         transition={{ duration: 0.35, ease: 'easeInOut' }}
       >
-        <h4>Title</h4>
+        <h3>Title</h3>
         <p>Location: Somewhere</p>
         <p>Camera: Probably an iPhone</p>
       </motion.div>
