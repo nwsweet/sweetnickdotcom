@@ -33,6 +33,7 @@ The main photos component handles state management and photo loading(just like A
 How does thumbnail loading and full res photo loading work? 
 
 
+
 ## some thoughts to be organized later
 - read docs, its better than asking chatgpt to refine over and over, and its overly confident, glazing tone is annoying
 - good design patterns
@@ -40,8 +41,6 @@ How does thumbnail loading and full res photo loading work?
     - organize your code into directories, make it logical and maintainable
 
 ## TODOs
-- style the photo detail view
-- photo thumbnail loading
 - posts in markdown and thumbnails, stored in a posts directory for now
 - organize photos into "series" and toggle between showing all photos or showing only the series on the grid
 - expanded photo view
