@@ -128,3 +128,40 @@
   justify-self: end;
   margin-bottom: var(--photo-image-bottom);
 }
+
+@media (max-aspect-ratio: 1.2 / 1) {
+  .photo-detail {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+
+  .photo-detail img,
+  .photo-detail-fullres {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    width: 100%;
+    height: 100%;
+    justify-self: center;
+    align-self: stretch;
+    object-position: center;
+  }
+
+  .photo-detail .photo-caption {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    align-self: center;
+    justify-self: start;
+    text-align: left;
+    margin-top: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+
+  .photo-detail h4 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    align-self: center;
+    justify-self: end;
+    margin-bottom: 0;
+  }
+}
