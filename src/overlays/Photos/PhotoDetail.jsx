@@ -69,25 +69,34 @@ export default function PhotoDetail({ photo, thumb, isOpen, onExpand, onClose, a
         exit={{ opacity: 0 }}
         transition={{ duration: 0.35, ease: 'easeInOut' }}
       />
-
-      <motion.img
-        src={thumb}
-        layoutId={`photo-${activeIndex}`}
-        ref={thumbRef}
-        onLayoutAnimationComplete={() => setIsLayoutComplete(true)}
-      />
-      <motion.img
-        className="photo-detail-fullres"
-        src={photo}
-        alt=""
-        ref={fullResRef}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isFullResLoaded && isLayoutComplete ? 1 : 0 }}
-        exit={{ opacity: 0, transition: { duration: 0 } }}
-        transition={{ duration: 0.35, ease: 'easeInOut' }}
-        onLoad={() => setIsFullResLoaded(true)}
-      />
-
+      <div className='photo-carousel'>
+        <button className='photo-carousel-button photo-carousel-button-prev' type="button">
+          &#8249;
+        </button>
+        <div className="photo-carousel-media">
+          <motion.img
+            className='photo-detail-thumbres'
+            src={thumb}
+            layoutId={`photo-${activeIndex}`}
+            ref={thumbRef}
+            onLayoutAnimationComplete={() => setIsLayoutComplete(true)}
+          />
+          <motion.img
+            className="photo-detail-fullres"
+            src={photo}
+            alt=""
+            ref={fullResRef}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isFullResLoaded && isLayoutComplete ? 1 : 0 }}
+            exit={{ opacity: 0, transition: { duration: 0 } }}
+            transition={{ duration: 0.35, ease: 'easeInOut' }}
+            onLoad={() => setIsFullResLoaded(true)}
+          />
+        </div>
+        <button className='photo-carousel-button photo-carousel-button-next' type="button">
+          &#8250;
+        </button>
+      </div>
       <motion.div
         className='photo-caption'
         initial={{ opacity: 0 }}

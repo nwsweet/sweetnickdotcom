@@ -43,4 +43,6 @@ How does thumbnail loading and full res photo loading work?
 ## TODOs
 - posts in markdown and thumbnails, stored in a posts directory for now
 - organize photos into "series" and toggle between showing all photos or showing only the series on the grid
-- expanded photo view
+- photos
+    - caret navigation in detail view
+    - logic for caption location based on window aspect ratio and photo aspect ratio (maybe image viewport should just be fixed square, carets on either side)

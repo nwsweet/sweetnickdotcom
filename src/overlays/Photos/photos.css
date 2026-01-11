@@ -1,9 +1,9 @@
 .photos {
-  width: 100%;
-  height: 100%;
+  flex: 1;
   min-height: 0;
   display: flex;
   flex-direction: column;
+  /* position: relative; */
 }
 
 .photos-title {
@@ -12,27 +12,40 @@
 }
 
 .photos-window-viewport {
+  /* this is so children can be positioned absolutely relative to this viewport */
   position: relative;
+  
+  display: flex;
   flex: 1;
   min-height: 0;
+  height: auto;
+  overflow: hidden;
+}
+
+/* this is for the wrapper motion div that lives within viewport */
+.photos-window-viewport > * {
+  flex: 1;
+  min-height: 0;
+  display: flex;
 }
 
 .photo-grid {
-  max-height: 70vh;
-  position: relative;
+  /* background-color: white;
+  position: absolute;
+  inset: 0; */
   z-index: 0;
-  overflow-y: auto;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+  overflow: auto;
+  flex: 1;
+  height: 100%;
+  min-height: 0;
+  scrollbar-width: none;
 
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 12px;
 }
 
-.photo-grid::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
-}
+
 
 .photo-cell {
   aspect-ratio: 1 / 1;
@@ -48,21 +61,23 @@
 }
 
 .photo-detail {
+  /* fills entirety of container */
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
+  /* max-width: 100%; */
+  /* lives on top of photos overlay stack */
   z-index: 2;
-  /* background: transparent; */
 
+  /* references for caption, button location */
   --photo-image-top: 0px;
   --photo-image-bottom: 0px;
 
+  /* 2x2 grid for content */
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: 1fr;
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  max-height: 70vh;
 }
 
 .photo-detail-bg {
@@ -72,7 +87,7 @@
   z-index: 0;
 }
 
-.photo-detail img {
+.photo-carousel {
   grid-column: 1 / 2;
   grid-row: 1 / 3;
   position: relative;
@@ -83,23 +98,74 @@
   max-height: 100%;
   object-fit: contain;
   align-self: center;
-  justify-self: left;
-  object-position: left center;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 48px;
+  grid-template-rows: auto;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  min-height: 0;
 }
 
-.photo-detail-fullres {
-  grid-column: 1 / 2;
-  grid-row: 1 / 3;
+.photo-carousel-button {
+  width: 100%;
+  height: 48px;
+  border: none;
+  background: transparent;
+  font-size: 2rem;
+  line-height: 1;
+  color: inherit;
+  padding: 0;
+  align-self: center;
+}
+
+.photo-carousel-button-prev {
+  grid-column: 1/2;
+}
+
+.photo-carousel-button-next {
+  grid-column: 3/4;
+}
+
+.photo-carousel-media {
+  grid-column: 2/3;
   position: relative;
-  z-index: 2;
-  width: auto;
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-items: center;
+}
+
+.photo-carousel .photo-detail-thumbres {
+  grid-area: 1 / 1;
+  position: relative;
+  z-index: 1;
+  width: 100%;
   height: 100%;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
   align-self: center;
-  justify-self: start;
-  object-position: left center;
+  justify-self: center;
+  /* object-position: left center; */
+}
+
+.photo-carousel .photo-detail-fullres {
+  grid-area: 1 / 1;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  align-self: center;
+  justify-self: center;
+  /* object-position: left center; */
 }
 
 .photo-detail .photo-caption {
@@ -130,15 +196,18 @@
 }
 
 @media (max-aspect-ratio: 1.2 / 1) {
-  .photo-detail {
+  /* .photo-detail {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: minmax(0, 1fr) auto;
   }
 
-  .photo-detail img,
-  .photo-detail-fullres {
+  .photo-carousel {
     grid-column: 1 / 3;
     grid-row: 1 / 2;
+  }
+
+  .photo-detail img,
+  .photo-detail-fullres {
     width: 100%;
     height: 100%;
     justify-self: center;
@@ -163,5 +232,5 @@
     align-self: center;
     justify-self: end;
     margin-bottom: 0;
-  }
+  } */
 }
