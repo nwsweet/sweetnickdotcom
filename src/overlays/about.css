@@ -1,0 +1,28 @@
+.Contact h2, .About h2 {
+    font-weight: 500;
+    margin-top: 0;
+}
+.Contact p, .About p {
+    font-size: 12pt;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.About .about-body {
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+}
+
+.About .about-photo {
+    width: auto;
+    max-width: 35%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.About .about-text {
+    margin: 0;
+}

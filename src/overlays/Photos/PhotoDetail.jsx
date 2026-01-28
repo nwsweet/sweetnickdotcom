@@ -104,9 +104,12 @@ export default function PhotoDetail({ photo, thumb, isOpen, onExpand, onClose, a
         exit={{ opacity: 0 }}
         transition={{ duration: 0.35, ease: 'easeInOut' }}
       >
-        <h3>Title</h3>
-        <p>Location: Somewhere</p>
-        <p>Camera: Probably an iPhone</p>
+        <h3>Photo-1.jpg</h3>
+        <p>location .... Patzcuaro, MX<br/>
+           camera ............. iPhone<br/><br/>
+           maybe a small blurb about<br/>
+           where this photo was taken<br/>
+           or anything of note</p>
       </motion.div>
 
       <motion.h4 

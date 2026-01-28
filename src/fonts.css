@@ -1,0 +1,177 @@
+/* Drafting Mono */
+/* Thin */
+@font-face {
+  font-family: "Drafting Mono";
+  src: url("src/assets/fonts/DraftingMono/woff2/DraftingMono-Thin.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Drafting Mono";
+  src: url("src/assets/fonts/DraftingMono/woff2/DraftingMono-ThinItalic.woff2") format("woff2");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ExtraLight */
+@font-face {
+  font-family: "Drafting Mono";
+  src: url("src/assets/fonts/DraftingMono/woff2/DraftingMono-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Drafting Mono";
+  src: url("src/assets/fonts/DraftingMono/woff2/DraftingMono-ExtraLightItalic.woff2") format("woff2");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Light */
+@font-face {
+  font-family: "Drafting Mono";
+  src: url("src/assets/fonts/DraftingMono/woff2/DraftingMono-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Drafting Mono";
+  src: url("src/assets/fonts/DraftingMono/woff2/DraftingMono-LightItalic.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Regular */
+@font-face {
+  font-family: "Drafting Mono";
+  src: url("src/assets/fonts/DraftingMono/woff2/DraftingMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Drafting Mono";
+  src: url("src/assets/fonts/DraftingMono/woff2/DraftingMono-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Medium */
+@font-face {
+  font-family: "Drafting Mono";
+  src: url("src/assets/fonts/DraftingMono/woff2/DraftingMono-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Drafting Mono";
+  src: url("src/assets/fonts/DraftingMono/woff2/DraftingMono-MediumItalic.woff2") format("woff2");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* SemiBold */
+@font-face {
+  font-family: "Drafting Mono";
+  src: url("src/assets/fonts/DraftingMono/woff2/DraftingMono-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Drafting Mono";
+  src: url("src/assets/fonts/DraftingMono/woff2/DraftingMono-SemiBoldItalic.woff2") format("woff2");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Bold */
+@font-face {
+  font-family: "Drafting Mono";
+  src: url("src/assets/fonts/DraftingMono/woff2/DraftingMono-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Drafting Mono";
+  src: url("src/assets/fonts/DraftingMono/woff2/DraftingMono-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Vulf Mono */
+/* Light */
+@font-face {
+  font-family: "Vulf Mono";
+  src: url("src/assets/fonts/Vulf Mono/VulfMonoDemo-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vulf Mono";
+  src: url("src/assets/fonts/Vulf Mono/VulfMonoDemo-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Regular */
+@font-face {
+  font-family: "Vulf Mono";
+  src: url("src/assets/fonts/Vulf Mono/VulfMonoDemo-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vulf Mono";
+  src: url("src/assets/fonts/Vulf Mono/VulfMonoDemo-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Bold */
+@font-face {
+  font-family: "Vulf Mono";
+  src: url("src/assets/fonts/Vulf Mono/VulfMonoDemo-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vulf Mono";
+  src: url("src/assets/fonts/Vulf Mono/VulfMonoDemo-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Black */
+@font-face {
+  font-family: "Vulf Mono";
+  src: url("src/assets/fonts/Vulf Mono/VulfMonoDemo-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vulf Mono";
+  src: url("src/assets/fonts/Vulf Mono/VulfMonoDemo-BlackItalic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}

@@ -17,7 +17,7 @@ export default function PhotoGrid({ photos, isOpen, onSelect, isDetailOpen }) {
           photo={photo}
           index={i}
           className="photo-cell" 
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.05 }}
           onClick={() => onSelect(i)}
         >
           <motion.img src={photo} alt={`Photo ${i + 1}`} layoutId={`photo-${i}`}/>

@@ -45,4 +45,5 @@ How does thumbnail loading and full res photo loading work?
 - organize photos into "series" and toggle between showing all photos or showing only the series on the grid
 - photos
     - caret navigation in detail view
-    - logic for caption location based on window aspect ratio and photo aspect ratio (maybe image viewport should just be fixed square, carets on either side)
+    - logic for caption location based on window aspect ratio and photo aspect ratio 
+        - (maybe image viewport should just be fixed square, carets on either side, if window is portrait then caption underneath, otherwise on side)

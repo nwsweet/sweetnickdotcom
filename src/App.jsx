@@ -25,7 +25,7 @@ function App() {
         return <Posts />;
       case "photos":
         return <Photos />;
-      case "whoami":
+      case "info":
         return <About />;
       case "contact":
         return <Contact />;
@@ -41,7 +41,7 @@ function App() {
       <nav>
         <NavButton text={"posts"} onNavClick={handleNavClick}/>
         <NavButton text={"photos"} onNavClick={handleNavClick}/>
-        <NavButton text={"whoami"} onNavClick={handleNavClick}/>
+        <NavButton text={"info"} onNavClick={handleNavClick}/>
         <NavButton text={"contact"} onNavClick={handleNavClick}/>
       </nav>
 

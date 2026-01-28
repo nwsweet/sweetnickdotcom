@@ -4,7 +4,9 @@
 }
   
 .posts-title {
+  margin-top: 0;
   margin-bottom: 1.5rem;
+  font-weight: 500;
 }
 
 .posts-window {
