@@ -1,7 +1,13 @@
 import { motion } from 'motion/react';
 import './photos.css';
 
-export default function PhotoGrid({ photos, isOpen, onSelect, isDetailOpen }) {
+export default function PhotoGrid({
+  photos,
+  isOpen,
+  onSelect,
+  isDetailOpen,
+  layoutIdPrefix = 'photo',
+}) {
   if (!isOpen || !photos) return null;
 
   return (
@@ -20,7 +26,7 @@ export default function PhotoGrid({ photos, isOpen, onSelect, isDetailOpen }) {
           whileHover={{ scale: 1.05 }}
           onClick={() => onSelect(i)}
         >
-          <motion.img src={photo} alt={`Photo ${i + 1}`} layoutId={`photo-${i}`}/>
+          <motion.img src={photo} alt={`Photo ${i + 1}`} layoutId={`${layoutIdPrefix}-${i}`}/>
         </motion.div>
       ))}
     </motion.div>

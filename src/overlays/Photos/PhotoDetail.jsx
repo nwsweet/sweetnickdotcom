@@ -1,7 +1,17 @@
 import { motion } from 'motion/react'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 
-export default function PhotoDetail({ photo, thumb, isOpen, onExpand, onClose, activeIndex }) {
+export default function PhotoDetail({
+  photo,
+  thumb,
+  isOpen,
+  onExpand,
+  onClose,
+  activeIndex,
+  layoutIdPrefix = 'photo',
+  onPrev,
+  onNext,
+}) {
   if (!isOpen || !photo) return null;
 
   const [isFullResLoaded, setIsFullResLoaded] = useState(false);
@@ -70,14 +80,18 @@ export default function PhotoDetail({ photo, thumb, isOpen, onExpand, onClose, a
         transition={{ duration: 0.35, ease: 'easeInOut' }}
       />
       <div className='photo-carousel'>
-        <button className='photo-carousel-button photo-carousel-button-prev' type="button">
+        <button
+          className='photo-carousel-button photo-carousel-button-prev'
+          type="button"
+          onClick={onPrev}
+        >
           &#8249;
         </button>
         <div className="photo-carousel-media">
           <motion.img
             className='photo-detail-thumbres'
             src={thumb}
-            layoutId={`photo-${activeIndex}`}
+            layoutId={`${layoutIdPrefix}-${activeIndex}`}
             ref={thumbRef}
             onLayoutAnimationComplete={() => setIsLayoutComplete(true)}
           />
@@ -93,7 +107,11 @@ export default function PhotoDetail({ photo, thumb, isOpen, onExpand, onClose, a
             onLoad={() => setIsFullResLoaded(true)}
           />
         </div>
-        <button className='photo-carousel-button photo-carousel-button-next' type="button">
+        <button
+          className='photo-carousel-button photo-carousel-button-next'
+          type="button"
+          onClick={onNext}
+        >
           &#8250;
         </button>
       </div>

@@ -13,6 +13,7 @@
   font-weight: 500;
 }
 
+
 .photos-window-viewport {
   /* this is so children can be positioned absolutely relative to this viewport */
   position: relative;
@@ -43,6 +44,99 @@
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-auto-rows: max-content;
   gap: 12px;
+}
+
+.photo-collections-grid {
+  z-index: 0;
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+  scrollbar-width: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+  padding: 2px 2px 8px;
+}
+
+.photo-collection-stack {
+  border: none;
+  background: transparent;
+  padding: 0;
+  text-align: center;
+  cursor: pointer;
+  display: grid;
+  gap: 12px;
+  font: inherit;
+}
+
+.photo-collection-stack-preview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: white;
+  /* border-radius: 6px; */
+}
+
+.photo-collection-stack-thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* border-radius: 6px; */
+  --stack-rotate: -3deg;
+  transform: translate(0, 0)
+    scale(calc(0.88 + (var(--stack-index) * 0.04)))
+    rotate(var(--stack-rotate));
+  transition: transform 0.2s ease;
+}
+
+.photo-collection-stack-thumb:nth-child(even) {
+  --stack-rotate: 3deg;
+}
+
+.photo-collection-stack:hover .photo-collection-stack-thumb {
+  transform: translate(0, 0)
+    scale(calc(0.9 + (var(--stack-index) * 0.05)))
+    rotate(calc(var(--stack-rotate) * 1.4));
+}
+
+.photo-collection-stack-meta h3 {
+  margin: 0 0 4px;
+  font-weight: 400;
+  font-family: inherit;
+}
+
+.photo-collection-grid {
+  z-index: 0;
+  overflow: hidden;
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 12px;
+}
+
+.photo-collection-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.photo-collection-header h3 {
+  margin: 0;
+  font-weight: 500;
+}
+
+.photo-collection-back {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 
