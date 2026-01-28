@@ -47,9 +47,14 @@ function App() {
 
       <AnimatePresence>
         {activeOverlay && (
-          <Overlay key={activeOverlay} originRect={originRect} onClose={() => setActiveOverlay(null)}>
-            {renderOverlay()}
-          </Overlay>
+        <Overlay
+          key={activeOverlay}
+          originRect={originRect}
+          onClose={() => setActiveOverlay(null)}
+          variant={activeOverlay}
+        >
+          {renderOverlay()}
+        </Overlay>
         )}
       </AnimatePresence>
 

@@ -22,3 +22,7 @@
   overflow: hidden;
   min-height: 0;
 }
+
+.overlay-panel--photos {
+  height: 80vh;
+}

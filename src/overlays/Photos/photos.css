@@ -113,7 +113,7 @@
   flex: 1;
   min-height: 0;
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto;
   gap: 12px;
 }
 
@@ -139,6 +139,18 @@
   font-family: inherit;
 }
 
+.photo-collection-back-bottom {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  align-self: end;
+  justify-self: end;
+}
+
 
 
 .photo-cell {
@@ -160,6 +172,7 @@
   inset: 0;
   width: 100%;
   height: 100%;
+  min-height: 0;
   /* max-width: 100%; */
   /* lives on top of photos overlay stack */
   z-index: 2;
@@ -172,6 +185,14 @@
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: 1fr;
+}
+
+.photo-detail-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
 }
 
 .photo-detail-bg {
@@ -188,18 +209,17 @@
   z-index: 1;
   width: 100%;
   height: 100%;
+  min-height: 0;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  align-self: center;
-  justify-self: center;
   display: grid;
   grid-template-columns: 48px minmax(0, 1fr) 48px;
-  grid-template-rows: auto;
+  grid-template-rows: minmax(0, 1fr);
   align-items: center;
   gap: 12px;
   min-width: 0;
-  min-height: 0;
+  overflow: hidden;
 }
 
 .photo-carousel-button {
@@ -230,15 +250,20 @@
   min-height: 0;
   width: 100%;
   height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  align-self: stretch;
+  justify-self: stretch;
   align-items: center;
   justify-items: center;
 }
+
 
 .photo-carousel .photo-detail-thumbres {
   grid-area: 1 / 1;
   position: relative;
   z-index: 1;
-  width: 100%;
+  width: auto;
   height: 100%;
   max-width: 100%;
   max-height: 100%;
@@ -252,7 +277,7 @@
   grid-area: 1 / 1;
   position: relative;
   z-index: 2;
-  width: 100%;
+  width: auto;
   height: 100%;
   max-width: 100%;
   max-height: 100%;

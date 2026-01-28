@@ -179,6 +179,20 @@ export default function Photos() {
                   onSelect={openDetail}
                   layoutIdPrefix={layoutIdPrefix}
                 />
+                <motion.button
+                  type="button"
+                  className="photo-collection-back-bottom"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.35, ease: 'easeInOut' }}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  style={{ transformOrigin: 'right' }}
+                  onClick={closeCollection}
+                >
+                  back to collections
+                </motion.button>
               </motion.div>
             )}
           </AnimatePresence>
@@ -186,9 +200,9 @@ export default function Photos() {
           {/* Detail */}
           <AnimatePresence initial={false} mode="popLayout" onExitComplete={() => setActiveIndex(null)}>
             {isDetailOpen && activeIndex !== null && (
-              <motion.div key="detail">
+              <motion.div key="detail" className="photo-detail-layer">
                 <PhotoDetail
-                  photo={activeFullRes[activeIndex]}
+                  photo={activeFullRes[activeIndex] ?? activeThumbs[activeIndex]}
                   thumb={activeThumbs[activeIndex]}
                   activeIndex={activeIndex}
                   isOpen={true} // TODO: remove this too

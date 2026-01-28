@@ -80,13 +80,17 @@ export default function PhotoDetail({
         transition={{ duration: 0.35, ease: 'easeInOut' }}
       />
       <div className='photo-carousel'>
-        <button
+        <motion.button
           className='photo-carousel-button photo-carousel-button-prev'
           type="button"
           onClick={onPrev}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.35, ease: 'easeInOut' }}
         >
           &#8249;
-        </button>
+        </motion.button>
         <div className="photo-carousel-media">
           <motion.img
             className='photo-detail-thumbres'
@@ -107,13 +111,17 @@ export default function PhotoDetail({
             onLoad={() => setIsFullResLoaded(true)}
           />
         </div>
-        <button
+        <motion.button
           className='photo-carousel-button photo-carousel-button-next'
           type="button"
           onClick={onNext}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.35, ease: 'easeInOut' }}
         >
           &#8250;
-        </button>
+        </motion.button>
       </div>
       <motion.div
         className='photo-caption'

@@ -1,7 +1,7 @@
 import { motion } from "motion/react"
 import './overlay.css'
 
-export default function Overlay({ children, onClose, originRect }) {
+export default function Overlay({ children, onClose, originRect, variant }) {
   // Get the center of where this overlay will originate from (navButton)
   const originCenterX = originRect.left + originRect.width / 2;
   const originCenterY = originRect.top + originRect.height / 2;
@@ -25,7 +25,7 @@ export default function Overlay({ children, onClose, originRect }) {
         exit={{ scale: 0 }}
         style={{ originX: originXScale, originY: originYScale }}
         transition={{ ease: "easeOut", duration: 0.3 }}
-        className="overlay-panel" 
+        className={`overlay-panel${variant ? ` overlay-panel--${variant}` : ''}`} 
         onClick={(e) => e.stopPropagation()}
       >
         {children}
