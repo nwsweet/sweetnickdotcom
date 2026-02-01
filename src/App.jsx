@@ -1,62 +1,66 @@
-import { useState } from "react";
-import { AnimatePresence } from "motion/react";
-import Header from './components/header';
-import NavButton from './components/navButton'
-import StickyCursor from './components/stickyCursor';
-import Overlay from './components/overlay'
-
-import Posts from './overlays/Posts'
-import Photos from './overlays/Photos/Photos'
-import About from './overlays/About'
-import Contact from './overlays/Contact'
+import { Link, NavLink, Route, Routes } from "react-router-dom";
+// import { AnimatePresence } from "motion/react";
+import StickyCursor from './components/stickyCursor/stickyCursor';
+import Contact from './components/contact/Contact'
 
 function App() {
-  const [activeOverlay, setActiveOverlay] = useState(null);
-  const [originRect, setOriginRect] = useState(null);
-
-  const handleNavClick = (text, rect) => {
-    setOriginRect(rect);
-    setActiveOverlay(text);
-  }
-
-  const renderOverlay = () => {
-    switch (activeOverlay) {
-      case "posts":
-        return <Posts />;
-      case "photos":
-        return <Photos />;
-      case "info":
-        return <About />;
-      case "contact":
-        return <Contact />;
-      default:
-        return null;
-    }
-  };
+  const Placeholder = ({ label }) => (
+    <div className="placeholder">{label} coming soon</div>
+  );
 
   return (
     <div className="App">
-      <Header text={"sweetnick.com"}/>
+      <div className="left">
+        {/* TODO: Refactor the menu-block into a react component */}
+        <div className="menu-block">
+          <Link className="title-link" to="/">
+            <h1 className="title">sweetnick.com</h1>
+          </Link>
+          <h4 className="subtitle">a website on the internet</h4>
 
-      <nav>
-        <NavButton text={"posts"} onNavClick={handleNavClick}/>
-        <NavButton text={"photos"} onNavClick={handleNavClick}/>
-        <NavButton text={"info"} onNavClick={handleNavClick}/>
-        <NavButton text={"contact"} onNavClick={handleNavClick}/>
-      </nav>
+          {/* TODO: Turn the nav menu into a component as well */}
+          <nav>
+            <ul>
+              <li>
+                <NavLink to="/notes">notes</NavLink>
+              </li>
+              <li className="posts-item">
+                <NavLink to="/posts">posts</NavLink>
+                <ul className="posts-sublist">
+                  <li>
+                    <NavLink to="/posts/first-post">first post</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/posts/second-post">second post</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/posts/third-post">third post</NavLink>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <NavLink to="/photos">photos</NavLink>
+              </li>
+              <li>
+                <NavLink to="/info">info</NavLink>
+              </li>
+              <li>
+                <NavLink to="/contact">contact</NavLink>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
 
-      <AnimatePresence>
-        {activeOverlay && (
-        <Overlay
-          key={activeOverlay}
-          originRect={originRect}
-          onClose={() => setActiveOverlay(null)}
-          variant={activeOverlay}
-        >
-          {renderOverlay()}
-        </Overlay>
-        )}
-      </AnimatePresence>
+      <div className="right">
+        <Routes>
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/notes" element={<Placeholder label="notes" />} />
+          <Route path="/posts" element={<Placeholder label="posts" />} />
+          <Route path="/photos" element={<Placeholder label="photos" />} />
+          <Route path="/info" element={<Placeholder label="info" />} />
+        </Routes>
+      </div>
 
       <StickyCursor />
     </div>

@@ -1,0 +1,17 @@
+.contact {
+  border-left: solid;
+  border-width: 2px;
+  padding-left: 10px;
+}
+
+.contact p {
+  margin: 0;
+}
+
+.contact .link {
+  color: #2323cc;
+}
+
+.contact .link:hover {
+  text-decoration: underline;
+}
