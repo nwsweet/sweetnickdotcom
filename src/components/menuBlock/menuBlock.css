@@ -1,0 +1,76 @@
+.title {
+  font-size: 26pt;
+  font-weight: normal;
+  margin: 0;
+  /* justify-self: center; */
+  /* width: fit-content; */
+}
+
+.menu-block {
+  /* border-style: solid; */
+  margin-left: 7vw;
+  margin-right: 7vw;
+}
+
+.title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.title-link:hover {
+  text-decoration: underline;
+}
+
+.subtitle {
+  font-size: 12pt;
+  font-weight: normal;
+  margin: 0;
+  margin-bottom: 150px;
+}
+
+nav ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+nav ul li {
+  margin-bottom: 20px;
+}
+
+nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  text-decoration: underline;
+}
+
+.nav-sublist {
+  list-style-type: none;
+  padding-left: 16px;
+  margin: 0;
+  font-size: 0.8em;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 700ms ease;
+}
+
+.nav-sublist li {
+  margin-bottom: 10px;
+}
+
+.nav-sublist li:first-child {
+  margin-top: 20px;
+}
+
+.nav-item:has(> a[aria-current="page"]) .nav-sublist,
+.nav-item:has(.nav-sublist a[aria-current="page"]) .nav-sublist {
+  max-height: 200px;
+}
+
+ul li:last-child {
+  margin-bottom: 0; /* Remove space from the last item */
+}

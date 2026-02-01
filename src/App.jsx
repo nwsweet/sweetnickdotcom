@@ -1,8 +1,9 @@
 import { Link, NavLink, Route, Routes } from "react-router-dom";
 // import { AnimatePresence } from "motion/react";
-import StickyCursor from './components/stickyCursor/stickyCursor';
-import Info from './components/info/Info'
-import Contact from './components/contact/Contact'
+import StickyCursor from "./components/stickyCursor/stickyCursor";
+import Info from "./components/info/Info";
+import Contact from "./components/contact/Contact";
+import MenuBlock from "./components/menuBlock/MenuBlock";
 
 function App() {
   const Placeholder = ({ label }) => (
@@ -12,45 +13,7 @@ function App() {
   return (
     <div className="App">
       <div className="left">
-        {/* TODO: Refactor the menu-block into a react component */}
-        <div className="menu-block">
-          <Link className="title-link" to="/">
-            <h1 className="title">sweetnick.com</h1>
-          </Link>
-          <h4 className="subtitle">a website on the internet</h4>
-
-          {/* TODO: Turn the nav menu into a component as well */}
-          <nav>
-            <ul>
-              <li>
-                <NavLink to="/notes">notes</NavLink>
-              </li>
-              <li className="posts-item">
-                <NavLink to="/posts">posts</NavLink>
-                <ul className="posts-sublist">
-                  <li>
-                    <NavLink to="/posts/first-post">first post</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/posts/second-post">second post</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/posts/third-post">third post</NavLink>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <NavLink to="/photos">photos</NavLink>
-              </li>
-              <li>
-                <NavLink to="/info">info</NavLink>
-              </li>
-              <li>
-                <NavLink to="/contact">contact</NavLink>
-              </li>
-            </ul>
-          </nav>
-        </div>
+        <MenuBlock />
       </div>
 
       <div className="right">
