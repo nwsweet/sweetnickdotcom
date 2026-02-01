@@ -1,6 +1,7 @@
 import { Link, NavLink, Route, Routes } from "react-router-dom";
 // import { AnimatePresence } from "motion/react";
 import StickyCursor from './components/stickyCursor/stickyCursor';
+import Info from './components/info/Info'
 import Contact from './components/contact/Contact'
 
 function App() {
@@ -55,10 +56,10 @@ function App() {
       <div className="right">
         <Routes>
           <Route path="/contact" element={<Contact />} />
+          <Route path="/info" element={<Info />} />
           <Route path="/notes" element={<Placeholder label="notes" />} />
           <Route path="/posts" element={<Placeholder label="posts" />} />
           <Route path="/photos" element={<Placeholder label="photos" />} />
-          <Route path="/info" element={<Placeholder label="info" />} />
         </Routes>
       </div>
 

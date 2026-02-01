@@ -1,0 +1,25 @@
+.info {
+  margin: 0 150px 0 150px;
+  max-width: 750px;
+}
+
+.info p {
+  border-left: solid;
+  border-width: 2px;
+  padding-left: 10px;
+  font-size: 10pt;
+  margin: 20px 0 20px 0;
+}
+
+.info p .heading {
+  text-decoration: underline;
+  font-size: 11pt;
+}
+
+.info .link {
+  color: #2323cc;
+}
+
+.info .link:hover {
+  text-decoration: underline;
+}

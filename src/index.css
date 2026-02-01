@@ -1,3 +1,5 @@
+/* Entire app */
+
 html,
 body,
 #root {
@@ -9,18 +11,18 @@ body,
 .App {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: auto 1fr;
   height: 100%;
   /* min-height: 100vh; */
   background-color: #f2f2f2;
   font-family: 'IBM Plex Mono';
 } 
 
+/* Left side / menu */
+
 .left {
   /* border to be deleted */
-  /* border: black;
-  border-width: 1px;
-  border-style: solid; */
+  /* border-style: solid; */
 
   justify-items: center;
   align-content: center;
@@ -28,8 +30,8 @@ body,
 
 .menu-block {
   /* border-style: solid; */
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 7vw;
+  margin-right: 7vw;
 }
 
 .title {
@@ -109,21 +111,21 @@ ul li:last-child {
 
 .right {
   /* border to be deleted */
-  /* border: black;
-  border-width: 1px;
-  border-style: solid; */
+  /* border-style: solid; */
 
-  aspect-ratio: 1.2 / 1;
+  display: grid;
+  /* aspect-ratio: 1.2 / 1; */
   height: 100%;
-  width: auto;
+  width: 1fr;
   min-height: 100%;
 
-  justify-items: center;
-  align-content: center;
+  place-items: center;
+  /* align-items: center; */
 }
 
 .placeholder {
-    border-left: solid;
-    border-width: 2px;
-    padding-left: 10px;
+  border-left: solid;
+  border-width: 2px;
+  padding: 0 10px;
+  width: fit-content;
 }
