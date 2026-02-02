@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import './fonts.css'
+import './assets/fonts/Ranade_Complete/Fonts/WEB/css/ranade.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(

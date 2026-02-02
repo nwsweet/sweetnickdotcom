@@ -49,26 +49,31 @@ nav a[aria-current="page"] {
 }
 
 .nav-sublist {
+  /* border-style: solid; */
   list-style-type: none;
   padding-left: 16px;
-  margin: 0;
   font-size: 0.8em;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 700ms ease;
+  transition: max-height 700ms ease, margin-top 900ms ease;
+  /* scrollbar-width: none; */
 }
+
+/* .nav-sublist::-webkit-scrollbar-thumb {
+  background-image: url('https://i.ibb.co/1RHr40z/248599.png'); 
+  background-repeat: no-repeat, no-repeat;
+  background-size: 10px;
+} */
 
 .nav-sublist li {
   margin-bottom: 10px;
 }
 
-.nav-sublist li:first-child {
+.nav-item:has([aria-current="page"]) .nav-sublist {
+  max-height: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
   margin-top: 20px;
-}
-
-.nav-item:has(> a[aria-current="page"]) .nav-sublist,
-.nav-item:has(.nav-sublist a[aria-current="page"]) .nav-sublist {
-  max-height: 200px;
 }
 
 ul li:last-child {

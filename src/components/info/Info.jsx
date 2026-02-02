@@ -16,11 +16,11 @@ export default function Info() {
       </p>
       <p>
         <span className='heading'>What do I find interesting?</span><br/>
-        Lots of stuff really, these days it's mostly working on or modifying my BMW wagon, tinkering with bikes, 
+        Lots of stuff really, these days it's mostly working on or modifying my BMW wagon, building and riding bikes, 
         playing guitar, taking photos, being active and learning about the world. 
       </p>
       <p>
-      Thanks for reading, be sure to <a className='link'>leave a note</a> letting me know you stopped by.
+      Thanks for reading, <a className='link'>leave a note</a> letting me know you stopped by.
       </p>
     </div>
   );

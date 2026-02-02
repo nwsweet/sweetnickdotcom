@@ -8,13 +8,17 @@ body,
   cursor: default;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .App {
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: auto 1fr;
   height: 100%;
   background-color: #f2f2f2;
-  font-family: 'IBM Plex Mono';
+  font-family: 'Ranade-Regular';
 } 
 
 /* Left side / menu */

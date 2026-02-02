@@ -39,6 +39,9 @@ How does thumbnail loading and full res photo loading work?
 - good design patterns
     - useState to track clicks, render client side etc
     - organize your code into directories, make it logical and maintainable
+- general ethos
+    - simplistic with a bit of interactive fun, playfullness
+    - "high quality basics" with some personality
 
 ## TODOs
 - posts in markdown and thumbnails, stored in a posts directory for now
@@ -47,3 +50,5 @@ How does thumbnail loading and full res photo loading work?
     - caret navigation in detail view
     - logic for caption location based on window aspect ratio and photo aspect ratio 
         - (maybe image viewport should just be fixed square, carets on either side, if window is portrait then caption underneath, otherwise on side)
+
+
