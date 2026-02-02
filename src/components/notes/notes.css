@@ -1,7 +1,26 @@
+.notes-shell {
+  max-width: 600px;
+}
+
 .notes {
   max-height: 60vh;
   overflow: scroll;
-  max-width: 600px;
+}
+
+.notes-indicator {
+  font-size: 12pt;
+  line-height: 1;
+  text-align: center;
+  color: #98000D;
+  margin: 6px 0;
+}
+
+.notes-arrow {
+  display: inline-block;
+}
+
+.notes-arrow--up {
+  transform: rotate(180deg);
 }
 
 .note {
