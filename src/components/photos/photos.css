@@ -6,16 +6,22 @@
 }
 
 .photos-grid {
-  column-count: 3;
-  column-gap: 12px;
+  display: flex;
+  gap: 12px;
   width: 100%;
   min-height: 100%;
 }
 
+.photos-column {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
 .photo-item {
   width: 100%;
-  break-inside: avoid;
-  margin-bottom: 12px;
 }
 
 .photo-item img {
