@@ -5,6 +5,7 @@ import Notes from "./components/notes/Notes";
 import EntryPanel from "./components/notes/EntryPanel";
 import Info from "./components/info/Info";
 import Contact from "./components/contact/Contact";
+import Photos from "./components/photos/Photos";
 import MenuBlock from "./components/menuBlock/MenuBlock";
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
           <Route path="/notes" element={<Notes />} />
           <Route path="/notes/post" element={<EntryPanel />} />
           <Route path="/posts" element={<Placeholder label="posts" />} />
-          <Route path="/photos" element={<Placeholder label="photos" />} />
+          <Route path="/photos" element={<Photos />} />
         </Routes>
       </div>
 

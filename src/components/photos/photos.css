@@ -1,0 +1,26 @@
+.photos {
+  height: 80%;
+  width: 80%;
+  overflow-y: auto;
+  margin: 0;
+}
+
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+  min-height: 100%;
+  align-content: start;
+}
+
+.photo-item {
+  width: 100%;
+}
+
+.photo-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
