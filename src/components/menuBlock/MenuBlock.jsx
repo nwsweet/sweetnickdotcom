@@ -22,19 +22,19 @@ export default function MenuBlock() {
           <li className="nav-item">
             <NavLink to="/notes">notes</NavLink>
             <ul className='nav-sublist'>
-              <li><NavLink to={visitorNotesLink}>{visitorNotesLabel}</NavLink></li>
+              <li><NavLink className='show-visitor-notes' to={visitorNotesLink}>{visitorNotesLabel}</NavLink></li>
               <li><NavLink to="/notes/post">leave a note</NavLink></li>
             </ul>
           </li>
           <li className="nav-item">
             <NavLink to="/posts">posts</NavLink>
             <ul className="nav-sublist">
-              <li><NavLink to="/posts/first-post">first post</NavLink></li>
-              <li><NavLink to="/posts/second-post">second post</NavLink></li>
-              <li><NavLink to="/posts/third-post">third post</NavLink></li>
-              <li><NavLink to="/posts/first-post">first post</NavLink></li>
-              <li><NavLink to="/posts/second-post">second post</NavLink></li>
-              <li><NavLink to="/posts/third-post">third post</NavLink></li>
+              <li><NavLink to="/posts/first-post">gone fishing</NavLink></li>
+              <li><NavLink to="/posts/second-post">dont throw away your fish</NavLink></li>
+              <li><NavLink to="/posts/third-post">a twisted knot isnt always bad</NavLink></li>
+              <li><NavLink to="/posts/fourth-post">a review of the yamaha r1</NavLink></li>
+              <li><NavLink to="/posts/fifth-post">cancel your subscription</NavLink></li>
+              <li><NavLink to="/posts/sixth-post">this is the first post</NavLink></li>
             </ul>
           </li>
           <li>

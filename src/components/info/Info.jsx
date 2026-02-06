@@ -11,13 +11,16 @@ export default function Info() {
       <p>
         <span className='heading'>What is this website?</span><br/>
         It's a place for me to write and share and document the things that I find interesting.
-        It's fully self contained, hosted, and served from a computer in my home office. I built it to learn some web development,
-        to have a place to share thoughts and projects, and as a way to organize my photos.
+        It's fully self developed, hosted, and served from a computer in my home office. I built it to learn some web development,
+        to have a place to share thoughts, projects, and photos and as an escape from social media owned by big tech. Learn more about
+        how I built it <a className='link'>here</a>.
       </p>
       <p>
-        <span className='heading'>What do I find interesting?</span><br/>
-        Lots of stuff really, these days it's mostly working on or modifying my BMW wagon, building and riding bikes, 
-        playing guitar, taking photos, being active and learning about the world. 
+        <span className='heading'>What things do I find interesting?</span><br/>
+        Lots of stuff really. These days it's mostly working on or modifying my BMW wagon, building and riding bikes, 
+        playing guitar, taking photos, being active and learning about the world. I have gotten a lot of motivation and
+        inspiration over the years from seeing what other people create and how they document their process. This is my contribution to the
+        learning and doing community.
       </p>
       <p>
       Thanks for reading, <a className='link'>leave a note</a> letting me know you stopped by.

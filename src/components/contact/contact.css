@@ -2,6 +2,9 @@
   border-left: solid;
   border-width: 2px;
   padding-left: 10px;
+  justify-self: start;
+  align-self: center;
+  margin-left: 20%;
 }
 
 .contact p {
