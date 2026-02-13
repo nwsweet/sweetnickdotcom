@@ -2,6 +2,9 @@
 *.jpg
 *.jpeg
 
+# Notes
+public/notes/*.json
+
 # Logs
 logs
 *.log

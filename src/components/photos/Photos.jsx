@@ -2,7 +2,7 @@ import './photos.css';
 
 export default function Photos() {
   const photoModules = import.meta.glob(
-    '../../photos/mexico/*.jpg',
+    '../../../public/photos/mexico/*.jpg',
     { eager: true, import: 'default' }
   );
   const photos = Object.entries(photoModules)
