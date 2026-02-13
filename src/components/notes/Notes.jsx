@@ -27,7 +27,7 @@ export default function Notes() {
       })
       .then((data) => {
         if (isMounted && Array.isArray(data)) {
-          setNotes(data);
+          setNotes([...data].reverse());
         }
       })
       .catch((error) => {

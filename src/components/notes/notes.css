@@ -73,6 +73,11 @@
   border-width: 2px;
 }
 
+.entry-panel-text--success {
+  color: #0f7a2d;
+  border-left-color: #0f7a2d;
+}
+
 .input-block {
   border-left: solid;
   border-width: 2px;
@@ -110,8 +115,34 @@
   border-left: solid;
   border-width: 2px;
   border-color: black;
+  background: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
 }
 
 .post-button:hover {
   text-decoration: underline;
+}
+
+.post-button:disabled {
+  cursor: default;
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+.entry-panel-status {
+  margin: 16px 0 0 10px;
+  font-size: 10pt;
+}
+
+.entry-panel-status--success {
+  color: #0f7a2d;
+}
+
+.entry-panel-status--error {
+  color: #98000D;
 }
