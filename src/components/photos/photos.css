@@ -3,6 +3,27 @@
   width: 80%;
   overflow-y: auto;
   margin: 0;
+  /* border-left: solid; */
+  border-width: 3px;
+}
+
+.set-title {
+  padding-left: 15px;
+  border-left: solid;
+  border-width: 3px;
+  margin-bottom: 30px;
+}
+
+.set-title h1 {
+  font-size: 14pt;
+  margin: 0;
+  font-weight: normal;
+}
+
+.set-title p {
+  font-size: 11pt;
+  margin: 0;
+  padding-bottom: 3px;
 }
 
 .photos-grid {

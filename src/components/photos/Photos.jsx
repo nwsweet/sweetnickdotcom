@@ -16,6 +16,10 @@ export default function Photos() {
 
   return (
     <div className='photos'>
+      <div className='set-title'> 
+        <h1>mexico</h1>
+        <p>photos from Patzcuaro, Mexico City, and the in-between</p>
+      </div>
       <div className='photos-grid'>
         {columns.map((column, columnIndex) => (
           <div className='photos-column' key={`col-${columnIndex}`}>
