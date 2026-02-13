@@ -21,6 +21,7 @@
 
 .info .link {
   color: #2323cc;
+  text-decoration: none;
 }
 
 .info .link:hover {

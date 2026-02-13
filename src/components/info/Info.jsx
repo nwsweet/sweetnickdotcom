@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './info.css';
 
 export default function Info() {
@@ -23,7 +24,7 @@ export default function Info() {
         learning and doing community.
       </p>
       <p>
-      Thanks for reading, <a className='link'>leave a note</a> letting me know you stopped by.
+      Thanks for reading, <Link className='link' to="/notes/post">leave a note</Link> letting me know you stopped by.
       </p>
     </div>
   );
