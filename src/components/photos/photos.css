@@ -3,8 +3,10 @@
   width: 80%;
   overflow-y: auto;
   margin: 0;
-  /* border-left: solid; */
+  /* border: solid; */
   border-width: 3px;
+  justify-self: center;
+  align-self: center;
 }
 
 .set-title {

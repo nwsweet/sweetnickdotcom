@@ -33,7 +33,7 @@ body,
 
 .right {
   /* border to be deleted */
-  /* border-style: solid; */
+  /* border: solid; */
 
   display: grid;
   /* aspect-ratio: 1.2 / 1; */

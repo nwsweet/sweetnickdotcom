@@ -66,7 +66,6 @@ export default function Notes() {
         {atTop ? "-" : <span className="notes-arrow notes-arrow--up">v</span>}
       </div>
       <div className='notes' ref={listRef}>
-        {/* <div className="placeholder">notes coming soon</div> */}
 
         {visibleNotes.map((note) => (
           <Note key={note.id} title= {note.title} date={note.date} text={note.text} author={note.author}/>
