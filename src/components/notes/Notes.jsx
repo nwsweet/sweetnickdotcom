@@ -13,7 +13,7 @@ export default function Notes() {
 
   const visibleNotes = showVisitorNotes
     ? notes
-    : notes.filter((note) => note.author === "me");
+    : notes.filter((note) => note.author === "Nick");
 
   useEffect(() => {
     let isMounted = true;

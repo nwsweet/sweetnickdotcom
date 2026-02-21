@@ -4,11 +4,14 @@ import './notes.css';
 
 export default function EntryPanel() {
   const navigate = useNavigate();
+  const proofPhrase = 'sweetnick';
   const [formData, setFormData] = useState({
     title: '',
     text: '',
     author: '',
   });
+  const [proofRequired, setProofRequired] = useState(false);
+  const [proofText, setProofText] = useState('');
   const [status, setStatus] = useState({ type: 'idle', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -25,6 +28,10 @@ export default function EntryPanel() {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (name === 'author' && value.trim().toLowerCase() !== 'nick') {
+      setProofRequired(false);
+      setProofText('');
+    }
   };
 
   const handleSubmit = async (event) => {
@@ -37,12 +44,34 @@ export default function EntryPanel() {
       author: formData.author.trim(),
     };
 
-  if (!payload.title || !payload.text) {
+    if (!payload.title || !payload.text) {
       setStatus({
         type: 'error',
         message: 'Please add a subject and a note before posting.',
       });
       return;
+    }
+
+    const isNick = payload.author.toLowerCase() === 'nick';
+    if (isNick && !proofRequired) {
+      setProofRequired(true);
+      setStatus({
+        type: 'error',
+        message: 'prove it to post as nick.',
+      });
+      return;
+    }
+
+    if (isNick && proofText.trim().toLowerCase() !== proofPhrase.toLowerCase()) {
+      setStatus({
+        type: 'error',
+        message: 'prove it failed. try again.',
+      });
+      return;
+    }
+
+    if (isNick) {
+      payload.author = 'Nick';
     }
 
     setIsSubmitting(true);
@@ -67,6 +96,8 @@ export default function EntryPanel() {
       }
 
       setFormData({ title: '', text: '', author: '' });
+      setProofRequired(false);
+      setProofText('');
       setStatus({
         type: 'success',
         message: 'thanks!',
@@ -136,6 +167,20 @@ export default function EntryPanel() {
           autoComplete='off'
         />
       </div>
+
+      {proofRequired ? (
+        <div className='input-block'>
+          <p>prove it:</p>
+          <input
+            type='text'
+            name='proof'
+            className='small-input'
+            value={proofText}
+            onChange={(event) => setProofText(event.target.value)}
+            autoComplete='off'
+          />
+        </div>
+      ) : null}
 
       <button className='post-button' type='submit' disabled={isSubmitting}>
         {isSubmitting ? 'posting...' : 'post'}

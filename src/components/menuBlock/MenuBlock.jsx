@@ -5,9 +5,12 @@ export default function MenuBlock() {
   const location = useLocation();
   const [searchParams] = useSearchParams();
   const onNotesPage = location.pathname.startsWith("/notes");
+  const onNotesPostPage = location.pathname === "/notes/post";
   const showVisitorNotes = onNotesPage && searchParams.get("visitors") === "1";
   const visitorNotesLink = showVisitorNotes ? "/notes" : "/notes?visitors=1";
   const visitorNotesLabel = showVisitorNotes ? "hide visitor notes" : "show visitor notes";
+  const notesSubmenuLink = onNotesPostPage ? "/notes?visitors=1" : visitorNotesLink;
+  const notesSubmenuLabel = onNotesPostPage ? "show visitor notes" : visitorNotesLabel;
 
   return (
     <div className='menu-block'>
@@ -19,13 +22,6 @@ export default function MenuBlock() {
       {/* TODO: Turn the nav menu into a component as well */}
       <nav>
         <ul>
-          <li className="nav-item">
-            <NavLink to="/notes">notes</NavLink>
-            <ul className='nav-sublist'>
-              <li><NavLink className='show-visitor-notes' to={visitorNotesLink}>{visitorNotesLabel}</NavLink></li>
-              <li><NavLink to="/notes/post">leave a note</NavLink></li>
-            </ul>
-          </li>
           <li className="nav-item">
             <NavLink to="/posts">posts</NavLink>
             <ul className="nav-sublist">
@@ -39,6 +35,13 @@ export default function MenuBlock() {
           </li>
           <li>
             <NavLink to="/photos">photos</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/notes">notes</NavLink>
+            <ul className='nav-sublist'>
+              <li><NavLink className='show-visitor-notes' to={notesSubmenuLink}>{notesSubmenuLabel}</NavLink></li>
+              <li><NavLink to="/notes/post">leave a note</NavLink></li>
+            </ul>
           </li>
           <li>
             <NavLink to="/info">info</NavLink>
