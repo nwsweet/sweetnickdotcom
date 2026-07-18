@@ -41,10 +41,12 @@ export default function MenuBlock() {
 
   return (
     <div className='menu-block'>
-      <Link className="title-link" to="/">
-        <h1 className="title">sweetnick.com</h1>
-      </Link>
-      <h4 className="subtitle">Nick Sweet's website on the internet</h4>
+      <div className="title-block">
+        <Link className="title-link" to="/">
+          <h1 className="title">sweetnick.com</h1>
+        </Link>
+        <h4 className="subtitle">Nick Sweet's website on the internet</h4>
+      </div>
 
       {/* TODO: Turn the nav menu into a component as well */}
       <nav>
@@ -56,12 +58,12 @@ export default function MenuBlock() {
                 {sublistAtTop ? "-" : <span className="sublist-arrow sublist-arrow--up">v</span>}
               </div>
               <ul className="nav-sublist" ref={sublistRef}>
-                <li><NavLink to="/posts/first-post">gone fishing</NavLink></li>
-                <li><NavLink to="/posts/second-post">dont throw away your fish</NavLink></li>
-                <li><NavLink to="/posts/third-post">a twisted knot isnt always bad</NavLink></li>
-                <li><NavLink to="/posts/fourth-post">a review of the yamaha r1</NavLink></li>
-                <li><NavLink to="/posts/fifth-post">cancel your subscription</NavLink></li>
-                <li><NavLink to="/posts/sixth-post">this is the first post</NavLink></li>
+                <li><NavLink to="/posts/first-post">6 - Gone Fishing</NavLink></li>
+                <li><NavLink to="/posts/second-post">5 - Don't Throw Away Your Fish</NavLink></li>
+                <li><NavLink to="/posts/third-post">4 - A Twisted Knot Isn't Always Bad</NavLink></li>
+                <li><NavLink to="/posts/fourth-post">3 - A Review of the Yamaha R1</NavLink></li>
+                <li><NavLink to="/posts/fifth-post">2 - cancel your subscription</NavLink></li>
+                <li><NavLink to="/posts/sixth-post">1 - this is the first post</NavLink></li>
               </ul>
               <div className="sublist-indicator" aria-hidden="true">
                 {sublistAtBottom ? "-" : <span className="sublist-arrow">v</span>}

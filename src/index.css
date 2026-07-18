@@ -5,7 +5,14 @@ body,
 #root {
   margin: 0;
   height: 100%;
-  cursor: default;
+  /* cursor: default; */
+  /* border: 1px solid; */
+}
+
+body {
+  padding: 20px;
+  box-sizing: border-box;
+  height: 100vh;
 }
 
 ::-webkit-scrollbar {
@@ -13,13 +20,16 @@ body,
 }
 
 .App {
-  margin: 0vw 5vw;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0vw 5vw;
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 25% 75%;
-  height: 100%;
   background-color: #ffffff;
   font-family: 'IBM Plex Mono';
+  
+  border: 10px solid;
 } 
 
 /* Left side / menu */
@@ -27,17 +37,20 @@ body,
 .left {
   display: flex;
   align-items: center;
+  min-height: 0;
+
+  /* border: 1px solid; */
 }
 
 .right {
   /* border to be deleted */
-  /* border: solid; */
+  /* border: 1px solid; */
 
-  display: grid;
+  display: flex;
   /* aspect-ratio: 1.2 / 1; */
-  height: 100%;
-  width: 1fr;
-  min-height: 100%;
+  /* height: 100%; */
+  /* width: 1fr; */
+  min-height: 0;
 
   place-items: center;
   /* align-items: center; */

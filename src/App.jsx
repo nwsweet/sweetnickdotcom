@@ -17,14 +17,14 @@ function App() {
       </div>
 
       <div className="right">
-        <Routes>
+        {/* <Routes>
           <Route path="/contact" element={<Contact />} />
           <Route path="/info" element={<Info />} />
           <Route path="/notes" element={<Notes />} />
           <Route path="/notes/post" element={<EntryPanel />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/photos" element={<Photos />} />
-        </Routes>
+        </Routes> */}
       </div>
 
       <StickyCursor />
