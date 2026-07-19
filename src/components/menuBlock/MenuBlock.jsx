@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation, useSearchParams } from "react-router-dom";
 import './menuBlock.css';
 
@@ -14,30 +13,6 @@ export default function MenuBlock() {
   const notesSubmenuLink = onNotesPostPage ? "/notes?visitors=1" : visitorNotesLink;
   const notesSubmenuLabel = onNotesPostPage ? "show visitor notes" : visitorNotesLabel;
 
-  const sublistRef = useRef(null);
-  const [sublistAtTop, setSublistAtTop] = useState(true);
-  const [sublistAtBottom, setSublistAtBottom] = useState(false);
-
-  useEffect(() => {
-    const listEl = sublistRef.current;
-    if (!listEl) return;
-
-    const updateEdges = () => {
-      const { scrollTop, scrollHeight, clientHeight } = listEl;
-      const maxScrollTop = scrollHeight - clientHeight;
-      setSublistAtTop(scrollTop <= 1);
-      setSublistAtBottom(scrollTop >= maxScrollTop - 1);
-    };
-
-    updateEdges();
-    listEl.addEventListener("scroll", updateEdges, { passive: true });
-    window.addEventListener("resize", updateEdges);
-
-    return () => {
-      listEl.removeEventListener("scroll", updateEdges);
-      window.removeEventListener("resize", updateEdges);
-    };
-  }, [onPostsPage]);
 
   return (
     <div className='menu-block'>
@@ -54,20 +29,14 @@ export default function MenuBlock() {
           <li className="nav-item">
             <NavLink to="/posts">posts</NavLink>
             <div className="sublist-shell">
-              <div className="sublist-indicator" aria-hidden="true">
-                {sublistAtTop ? "-" : <span className="sublist-arrow sublist-arrow--up">v</span>}
-              </div>
-              <ul className="nav-sublist" ref={sublistRef}>
-                <li><NavLink to="/posts/first-post">6 - Gone Fishing</NavLink></li>
-                <li><NavLink to="/posts/second-post">5 - Don't Throw Away Your Fish</NavLink></li>
-                <li><NavLink to="/posts/third-post">4 - A Twisted Knot Isn't Always Bad</NavLink></li>
-                <li><NavLink to="/posts/fourth-post">3 - A Review of the Yamaha R1</NavLink></li>
-                <li><NavLink to="/posts/fifth-post">2 - cancel your subscription</NavLink></li>
-                <li><NavLink to="/posts/sixth-post">1 - this is the first post</NavLink></li>
+              <ul className="nav-sublist posts-sublist">
+                <li><NavLink to="/posts/first-post"><span className="post-num">6.</span><span className="post-title">Gone Fishing</span></NavLink></li>
+                <li><NavLink to="/posts/second-post"><span className="post-num">5.</span><span className="post-title">Don't Throw Away Your Fish</span></NavLink></li>
+                <li><NavLink to="/posts/third-post"><span className="post-num">4.</span><span className="post-title">A Twisted Knot Isn't Always Bad</span></NavLink></li>
+                <li><NavLink to="/posts/fourth-post"><span className="post-num">3.</span><span className="post-title">A Review of the Yamaha R1</span></NavLink></li>
+                <li><NavLink to="/posts/fifth-post"><span className="post-num">2.</span><span className="post-title">cancel your subscription</span></NavLink></li>
+                <li><NavLink to="/posts/sixth-post"><span className="post-num">1.</span><span className="post-title">this is the first post</span></NavLink></li>
               </ul>
-              <div className="sublist-indicator" aria-hidden="true">
-                {sublistAtBottom ? "-" : <span className="sublist-arrow">v</span>}
-              </div>
             </div>
           </li>
           <li>

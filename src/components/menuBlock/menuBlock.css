@@ -62,7 +62,7 @@ nav a[aria-current="page"]:not(.show-visitor-notes) {
 }
 
 .sublist-shell {
-  width: fit-content;
+  width: 85%;
   max-height: 0;
   overflow: hidden;
   transition: max-height 700ms ease, margin-top 900ms ease;
@@ -70,7 +70,7 @@ nav a[aria-current="page"]:not(.show-visitor-notes) {
 
 .nav-item:has([aria-current="page"]) .sublist-shell {
   max-height: 140px;
-  margin-top: 20px;
+  margin-top: 1.5vh;
 }
 
 .nav-sublist {
@@ -91,23 +91,16 @@ nav a[aria-current="page"]:not(.show-visitor-notes) {
   font-family: 'IBM Plex Mono';
 }
 
-.sublist-indicator {
-  font-size: 10pt;
-  font-weight: bold;
-  line-height: 1;
-  padding-left: 16px;
-  text-align: center;
-  color: #98000D;
-  margin: 3px 0;
+.posts-sublist li a {
+  display: grid;
+  grid-template-columns: 1.5em 1fr;
+  column-gap: 0.5em;
 }
 
-.sublist-arrow {
-  display: inline-block;
+.post-title {
+  text-transform: lowercase;
 }
 
-.sublist-arrow--up {
-  transform: rotate(180deg);
-}
 
 ul li:last-child {
   margin-bottom: 0; /* Remove space from the last item */
