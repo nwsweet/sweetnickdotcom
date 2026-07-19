@@ -52,8 +52,9 @@ body {
   /* width: 1fr; */
   min-height: 0;
 
-  place-items: center;
-  /* align-items: center; */
+  /* place-items: center; */
+  align-items: center;
+  justify-content: center;
 }
 
 .placeholder {
